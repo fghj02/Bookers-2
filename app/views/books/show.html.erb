@@ -14,7 +14,7 @@
          <table class='table'>
          <tr>
              <td><%= link_to (@book.user) do %>
-              <%= image_tag @book.user.get_profile_image,size: '60x60' %>
+              <%= image_tag @book.user.get_profile_image('60x60') %>
               <%= @book.user.name %>
               <% end %>
             </td>
