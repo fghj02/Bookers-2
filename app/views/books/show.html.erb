@@ -1,7 +1,7 @@
 
 <div class='container'>
   <div class="row">
-     <div class='col-md-4'>
+     <div class='col-md-3'>
 
        <h3>User info</h3>
 
@@ -9,8 +9,8 @@
        <h3 class="mt-3">New book</h3>
 
        <%= render 'form', book: Book.new %></div>
-       <div class= 'col-md-7 offset-md-1'>
-         <h3>books detail</h3>
+       <div class= 'col-md-8 offset-md-1'>
+         <h3>Book detail</h3>
          <table class='table'>
          <tr>
              <td><%= link_to (@book.user) do %>
@@ -24,7 +24,8 @@
            <td><%= @book.body %></td>
              <% if @book.user == current_user %>
              <td><%= link_to 'Edit', edit_book_path(@book), class: "btn btn-success edit_book_#{@book}" %></td>
-           <td> <%= link_to 'Destroy', book_path(@book), method: :delete, date: {confirm: 'are you ok?'} %></td>
+           <td> <%= link_to 'Destroy', book_path(@book), method: :delete, date: {confirm: 'are you ok?'},class: "btn btn-sm btn-danger destroy_book_#{@book.id}"%></td>
+
                  <% end %>
            </tr>
          </table>
