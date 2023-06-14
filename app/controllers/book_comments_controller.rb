@@ -1,16 +1,20 @@
 class BookCommentsController < ApplicationController
 
+   def new
+     session[:previous_url] = request.referer
+   end
+
    def create
     book = Book.find(params[:book_id])
     comment = current_user.book_comments.new(book_comment_params)
     comment.book_id = book.id
     comment.save
-    redirect_back
+    redirect_to books_path
    end
 
    def destroy
     BookComment.find(params[:id]).destroy
-    redirect_back
+    redirect_to books_path
    end
 
   private
