@@ -1,8 +1,6 @@
 class BookCommentsController < ApplicationController
 
-   def new
-     session[:previous_url] = request.referer
-   end
+
 
    def create
     book = Book.find(params[:book_id])

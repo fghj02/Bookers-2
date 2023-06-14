@@ -21,13 +21,13 @@ class BooksController < ApplicationController
   def index
     @books = Book.all
     @book = Book.new
-    session[:previous_url] = request.referer
+
   end
 
   def show
     @book = Book.find(params[:id])
     @book_comment = BookComment.new
-    session[:previous_url] = request.referer
+
   end
 
   def edit
